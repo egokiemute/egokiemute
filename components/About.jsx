@@ -18,13 +18,13 @@ export default function About() {
       name: "Education",
       icon1: "/assets/edu-icon.png",
       icon2: "/assets/edu-icon-dark.png",
-      description: "B.Tech in Computer Science",
+      description: "B.Tech in Computer Science & Mathematics (in view)",
     },
     {
       name: "Projects",
       icon1: "/assets/project-icon.png",
       icon2: "/assets/project-icon-dark.png",
-      description: "Built more than 5 projects",
+      description: "Built 30+ projects",
     },
   ];
   return (
@@ -47,7 +47,7 @@ export default function About() {
               className="w-full animate-spin_slow"
             />
             <img
-              src="/assets/dev-icon.png"
+              src="/assets/code-icon.png"
               alt=""
               className="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             />
@@ -55,10 +55,12 @@ export default function About() {
         </div>
         <div className="flex-1">
           <p className="mb-10 max-w-2xl font-Ovo">
-            I am an experienced Frontend Developer with over a decade of
-            professional expertise in the field. Throughout my career, I have
-            had the privilege of collaborating with prestigious organizations,
-            contributing to their success and growth.
+            I&apos;m a software developer who enjoys building reliable,
+            user-focused digital products. I work across the frontend and
+            beyond, turning ideas into clean, scalable applications with
+            attention to performance, accessibility, and detail. I enjoy
+            collaborating with teams, learning continuously, and shipping
+            solutions that solve real problems.
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
