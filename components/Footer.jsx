@@ -9,7 +9,7 @@ export default function Footer() {
             className="w-36 mx-auto mb-2 dark:hidden"
           />
           <img
-            src="/assets/logo_dark.png"
+            src="/assets/logo-dark.png"
             alt=""
             className="w-36 mx-auto mb-2 hidden dark:block"
           />
