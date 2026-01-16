@@ -37,8 +37,9 @@ export default function Services() {
 
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
         I build modern software solutions that focus on performance, usability,
-        and long-term maintainability. Whether it’s a user interface or a full
-        web application, I enjoy creating products that solve real problems.
+        and long-term maintainability. Whether it&apos;s a user interface or a
+        full web application, I enjoy creating products that solve real
+        problems.
       </p>
 
       <div className="grid grid-cols-auto gap-6 my-10">

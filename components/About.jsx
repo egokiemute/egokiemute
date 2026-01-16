@@ -58,9 +58,11 @@ export default function About() {
             I&apos;m a software developer who enjoys building reliable,
             user-focused digital products. I work across the frontend and
             beyond, turning ideas into clean, scalable applications with
-            attention to performance, accessibility, and detail. I enjoy
-            collaborating with teams, learning continuously, and shipping
-            solutions that solve real problems.
+            attention to performance, accessibility, and detail. I&apos;ve
+            collaborated with teams and brands across the UK, the US, and
+            multiple African countries, contributing to products used by diverse
+            audiences. I enjoy continuous learning and shipping solutions that
+            solve real problems.
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
