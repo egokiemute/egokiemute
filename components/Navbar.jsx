@@ -31,7 +31,7 @@ export default function Navbar() {
           "backdrop-blur-lg",
           "shadow-sm",
           "dark:bg-darkTheme",
-          "dark:shadow-white/20"
+          "dark:shadow-white/20",
         );
         navLinkRef.current.classList.remove(
           "bg-white",
@@ -39,7 +39,7 @@ export default function Navbar() {
           "bg-opacity-50",
           "dark:border",
           "dark:border-white/30",
-          "dark:bg-transparent"
+          "dark:bg-transparent",
         );
       } else {
         navRef.current.classList.remove(
@@ -48,7 +48,7 @@ export default function Navbar() {
           "backdrop-blur-lg",
           "shadow-sm",
           "dark:bg-darkTheme",
-          "dark:shadow-white/20"
+          "dark:shadow-white/20",
         );
         navLinkRef.current.classList.add(
           "bg-white",
@@ -56,7 +56,7 @@ export default function Navbar() {
           "bg-opacity-50",
           "dark:border",
           "dark:border-white/30",
-          "dark:bg-transparent"
+          "dark:bg-transparent",
         );
       }
     });
@@ -84,7 +84,7 @@ export default function Navbar() {
         ref={navRef}
         className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
       >
-        <a href="https://prebuiltui.com?utm_source=eliana">
+        <a href="/">
           <img
             src="/assets/logo.png"
             alt="Logo"
