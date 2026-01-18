@@ -136,7 +136,7 @@ export default function Navbar() {
           <li>
             <a
               className="hover:text-gray-500 dark:hover:text-gray-300 transition"
-              href="#contact"
+              href="mailto:contact@okiemute.cv"
             >
               Contact me
             </a>
@@ -158,7 +158,7 @@ export default function Navbar() {
           </button>
 
           <a
-            href="#contact"
+            href="mailto:contact@okiemute.cv"
             className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30"
           >
             Contact
@@ -226,7 +226,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={closeMenu}>
+            <a href="mailto:contact@okiemute.cv" onClick={closeMenu}>
               Contact me
             </a>
           </li>
