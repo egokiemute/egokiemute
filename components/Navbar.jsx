@@ -82,7 +82,7 @@ export default function Navbar() {
 
       <nav
         ref={navRef}
-        className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+        className="w-full fixed h-20 px-5 lg:px-2 xl:px-[4%] flex items-center justify-between z-50"
       >
         <a href="/">
           <img
@@ -161,7 +161,7 @@ export default function Navbar() {
             href="mailto:contact@okiemute.cv"
             className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30"
           >
-            Contact
+            Get in touch
             <img
               src="/assets/arrow-icon.png"
               alt=""
