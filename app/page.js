@@ -299,7 +299,7 @@ export default function Page() {
             <div className="mx-auto w-full max-w-[320px] lg:mx-0">
               <div className="relative aspect-[4/5] overflow-hidden bg-[#ded8cc]">
                 <Image
-                  src="/assets/profile-me.png"
+                  src="/assets/profile-mee.png"
                   alt="Portrait of Okiemute Egokiphovwen"
                   fill
                   priority
