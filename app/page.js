@@ -324,7 +324,7 @@ export default function Page() {
                 <div>
                   <p className="mb-2 text-[#a09b90]">Focus</p>
                   <p className="text-[#121212]">
-                    Frontend, UI systems, web apps
+                    Frontend, UI systems, Backend, & Web apps
                   </p>
                 </div>
                 <div>
