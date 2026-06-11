@@ -72,7 +72,7 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@egokiemute",
+    creator: "@okiemute_ego",
   },
 };
 

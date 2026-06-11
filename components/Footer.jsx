@@ -40,13 +40,13 @@ export default function Footer() {
           <li>
             <a
               target="_blank"
-              href="https://www.linkedin.com/in/egokiphovwenokiemute/"
+              href="https://www.linkedin.com/in/egokiemute/"
             >
               LinkedIn
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://x.com/egokiemute">
+            <a target="_blank" href="https://x.com/okiemute_ego">
               Twitter
             </a>
           </li>

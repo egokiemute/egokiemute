@@ -23,17 +23,18 @@ const projects = [
     category: "Software Engineer II",
     title: "Anfanifi",
     description:
-      "Owned frontend engineering for a supply chain and fintech platform, building scalable interfaces that support business decision-making in a zero-trust ecosystem.",
+      "Built and maintained merchant-facing systems that enable food merchants to sell directly to their customers, including a kitchen display system and in-built QR management tools.",
     impact: [
-      "Enabled API-driven financial workflows and real-time data visibility",
-      "Improved performance using code-splitting and lazy loading techniques",
-      "Collaborated across product, design, and backend to ship scalable features",
+      "Built the customer ordering system for merchants to sell food directly to their customers",
+      "Co-developed an in-built QR Management system for the merchant portal with the lead engineer",
+      "Led the development of the Kitchen Display System using React Native",
+      "Maintained and improved the merchant portal across product cycles",
     ],
     learnings: [
-      "Designing frontend systems for fintech and supply chain products",
-      "Working with GraphQL/REST APIs at scale",
-      "Advanced state management with Redux and Zustand",
-      "Translating business logic into user-facing experiences",
+      "Building end-to-end ordering and fulfilment flows",
+      "QR code generation and management systems",
+      "React Native development for kitchen-facing display applications",
+      "Cross-functional collaboration with product and management teams",
     ],
     links: [{ label: "Visit site", href: "https://anfanifi.com" }],
   },
@@ -129,10 +130,10 @@ const contactLinks = [
   { label: "Email", href: "mailto:contact@okiemute.cv" },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/egokiphovwenokiemute/",
+    href: "https://www.linkedin.com/in/egokiemute/",
   },
   { label: "GitHub", href: "https://github.com/egokiemute" },
-  { label: "Twitter", href: "https://x.com/egokiemute" },
+  { label: "Twitter", href: "https://x.com/okiemute_ego" },
 ];
 
 export const metadata = {
