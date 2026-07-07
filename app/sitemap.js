@@ -1,7 +1,8 @@
+import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
-import { blogPosts } from "./blog/blogData";
 
-export default function sitemap() {
+export default async function sitemap() {
+  const blogPosts = await getAllPosts();
   const staticRoutes = [
     {
       url: absoluteUrl("/"),
@@ -10,7 +11,7 @@ export default function sitemap() {
       priority: 1,
     },
     {
-      url: absoluteUrl("/blog"),
+      url: absoluteUrl("/writings"),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
@@ -18,7 +19,7 @@ export default function sitemap() {
   ];
 
   const postRoutes = blogPosts.map((post) => ({
-    url: absoluteUrl(`/blog/${post.slug}`),
+    url: absoluteUrl(`/writings/${post.slug}`),
     lastModified: new Date(post.date),
     changeFrequency: "monthly",
     priority: 0.7,

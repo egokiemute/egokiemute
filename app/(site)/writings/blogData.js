@@ -5,6 +5,7 @@ export const blogPosts = [
     date: "2024-06-18",
     readTime: "6 min read",
     category: "Product",
+    image: "/assets/user-img.jpeg",
     excerpt:
       "How to keep quality high while shipping fast. A practical loop for small teams working with tight timelines.",
     tags: ["strategy", "process", "quality"],
@@ -32,6 +33,7 @@ export const blogPosts = [
     date: "2024-05-27",
     readTime: "5 min read",
     category: "Design",
+    image: "/assets/profile-img.png",
     excerpt:
       "Constraints are not a blocker. They are a framework for creating better interfaces with fewer surprises.",
     tags: ["ui", "systems", "delivery"],
@@ -59,6 +61,7 @@ export const blogPosts = [
     date: "2024-05-05",
     readTime: "4 min read",
     category: "Culture",
+    image: "/assets/user-image.png",
     excerpt:
       "Shipping is a habit. Sustainable pace protects quality and keeps momentum predictable for the long term.",
     tags: ["teams", "habits", "delivery"],
@@ -86,6 +89,7 @@ export const blogPosts = [
     date: "2024-04-11",
     readTime: "7 min read",
     category: "Engineering",
+    image: "/assets/me.jpg",
     excerpt:
       "A simple architecture reduces friction and keeps teams moving, even when the product is evolving fast.",
     tags: ["frontend", "architecture", "patterns"],

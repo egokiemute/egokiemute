@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 
 const navigationLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Writing", href: "/writings" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 function getLagosTime() {
@@ -53,7 +54,7 @@ export default function MobileMenu() {
       {isOpen && (
         <div className="fixed inset-0 z-50 flex min-h-screen flex-col bg-[#f7f6f2] px-5 pb-6 pt-5">
           <div className="flex items-start justify-between text-[11px] uppercase tracking-[0.24em] text-[#121212]">
-            <a href="#top" onClick={() => setIsOpen(false)}>
+            <a href="/" onClick={() => setIsOpen(false)}>
               Okiemute Egokiphovwen
             </a>
 
