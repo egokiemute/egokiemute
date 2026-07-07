@@ -16,7 +16,7 @@ export default function HomeTemplate({
         <div className="mx-auto flex w-full max-w-[1440px] flex-col px-5 sm:px-8 lg:px-10">
           <section
             id="top"
-            className="grid min-h-[calc(100vh-56px)] gap-12 pb-16 pt-16 sm:pt-24 lg:grid-cols-[1.3fr_0.9fr] lg:gap-12 lg:pt-28"
+            className="grid min-h-[calc(100vh-56px)] gap-12 pb-16 pt-10 sm:pt-18 lg:grid-cols-[1.3fr_0.9fr] lg:gap-12 lg:pt-28"
           >
             <div className="flex min-h-[46vh] flex-col justify-end">
               <p className="mb-6 text-[10px] uppercase tracking-[0.32em] text-[#9b978d]">
