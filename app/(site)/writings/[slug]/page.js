@@ -23,6 +23,8 @@ export const generateMetadata = async ({ params }) => {
     };
   }
 
+  const postImage = post.image ? absoluteUrl(post.image) : siteConfig.ogImage;
+
   return {
     title: post.title,
     description: post.excerpt,
@@ -41,9 +43,9 @@ export const generateMetadata = async ({ params }) => {
       tags: post.tags,
       images: [
         {
-          url: siteConfig.ogImage,
+          url: postImage,
           width: 1200,
-          height: 1200,
+          height: 630,
           alt: `${post.title} by ${siteConfig.name}`,
         },
       ],
@@ -52,7 +54,7 @@ export const generateMetadata = async ({ params }) => {
       card: "summary_large_image",
       title: `${post.title} | ${siteConfig.name}`,
       description: post.excerpt,
-      images: [siteConfig.ogImage],
+      images: [postImage],
     },
   };
 };
@@ -66,6 +68,7 @@ export default async function WritingPostPage({ params }) {
 
   const posts = await getAllPosts();
   const related = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
+  const postImage = post.image ? absoluteUrl(post.image) : siteConfig.ogImage;
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -80,7 +83,7 @@ export default async function WritingPostPage({ params }) {
         keywords: post.tags.join(", "),
         url: absoluteUrl(`/writings/${post.slug}`),
         mainEntityOfPage: absoluteUrl(`/writings/${post.slug}`),
-        image: siteConfig.ogImage,
+        image: postImage,
         author: {
           "@id": absoluteUrl("/#person"),
         },
