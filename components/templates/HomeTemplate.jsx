@@ -20,13 +20,13 @@ export default function HomeTemplate({
           >
             <div className="flex min-h-[46vh] flex-col justify-end">
               <p className="mb-6 text-[10px] uppercase tracking-[0.32em] text-[#9b978d]">
-                Available for freelance and in-house roles
+                Open to full-time remote roles — Europe & US
               </p>
 
               <h1 className="max-w-[7ch] text-[clamp(4rem,12vw,8.8rem)] font-medium lowercase leading-[0.88] tracking-[-0.08em] text-[#111111]">
-                software
+                full-stack
                 <br />
-                developer
+                engineer
               </h1>
             </div>
           </section>
@@ -58,17 +58,19 @@ export default function HomeTemplate({
               <div className="grid gap-6 text-[11px] uppercase tracking-[0.24em] text-[#6f6b63] sm:grid-cols-3">
                 <div>
                   <p className="mb-2 text-[#a09b90]">Experience</p>
-                  <p className="text-[#121212]">7+ years shipping products</p>
+                  <p className="text-[#121212]">4 years shipping products</p>
                 </div>
                 <div>
                   <p className="mb-2 text-[#a09b90]">Focus</p>
                   <p className="text-[#121212]">
-                    Frontend, UI systems, Backend, & Web apps
+                    Full-stack: Next.js, NestJS, Flutter, PostgreSQL
                   </p>
                 </div>
                 <div>
-                  <p className="mb-2 text-[#a09b90]">Location</p>
-                  <p className="text-[#121212]">Lagos, Nigeria</p>
+                  <p className="mb-2 text-[#a09b90]">Availability</p>
+                  <p className="text-[#121212]">
+                    Remote worldwide · UTC+1, full CET overlap
+                  </p>
                 </div>
               </div>
             </div>
@@ -120,10 +122,11 @@ export default function HomeTemplate({
                 let&apos;s talk
               </h2>
               <p className="mt-6 text-sm leading-7 text-[#272521] sm:text-[15px]">
-                I&apos;m always interested in discussing new opportunities,
-                collaborations, or ambitious products. If you need a thoughtful
-                frontend developer who can help shape and ship the work,
-                let&apos;s connect.
+                I&apos;m looking for a full-time remote role with a team that
+                ships — founding engineer, full-stack, or backend-leaning. If
+                you&apos;re early and need someone who can take a product from
+                database schema to App Store without waiting to be told how,
+                we should talk.
               </p>
             </div>
 
@@ -141,7 +144,7 @@ export default function HomeTemplate({
               ))}
 
               <p className="pt-4 text-[#a09b90]">
-                Available for remote work worldwide
+                Open to remote roles worldwide · UTC+1
               </p>
             </div>
           </section>

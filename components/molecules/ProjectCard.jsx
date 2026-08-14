@@ -32,10 +32,10 @@ export default function ProjectCard({ project }) {
 
           <div>
             <p className="mb-3 text-[10px] uppercase tracking-[0.24em] text-[#9b978d]">
-              Learnings
+              Stack
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-[#8f8b82]">
-              {project.learnings.map((item) => (
+              {project.stack.map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>

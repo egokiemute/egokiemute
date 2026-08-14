@@ -11,110 +11,80 @@ const filters = [
 
 const projects = [
   {
-    category: "Software Engineer II",
-    title: "Anfanifi",
+    category: "Full-Stack Engineer · 2025 – Present",
+    title: "Encirco",
     description:
-      "Built and maintained merchant-facing systems that enable food merchants to sell directly to their customers, including a kitchen display system and in-built QR management tools.",
+      "AI-assisted business registration and compliance platform. I'm the only engineer on it, across the entire stack.",
     impact: [
-      "Built the customer ordering system for merchants to sell food directly to their customers",
-      "Co-developed an in-built QR Management system for the merchant portal with the lead engineer",
-      "Led the development of the Kitchen Display System using React Native",
-      "Maintained and improved the merchant portal across product cycles",
+      "Over 600 businesses registered through the platform to date",
+      "Built a WhatsApp AI intake agent that captures registration details conversationally and routes them into a human-in-the-loop operations queue",
+      "Built the internal backoffice operators use to process registrations, generate documents, and track application state",
+      "Removed weeks of waiting from a process founders would otherwise navigate manually",
     ],
-    learnings: [
-      "Building end-to-end ordering and fulfilment flows",
-      "QR code generation and management systems",
-      "React Native development for kitchen-facing display applications",
-      "Cross-functional collaboration with product and management teams",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript", "WhatsApp Cloud API"],
+    links: [{ label: "Visit site", href: "https://encir.co" }],
+  },
+  {
+    category: "Full-Stack Engineer (Contract) · 2026 – Present",
+    title: "ValueLoop",
+    description:
+      "Fintech rewards and loyalty platform. Sole engineer across mobile, web, and backend.",
+    impact: [
+      "Building the full product solo: Flutter mobile app, Next.js admin backoffice, NestJS API",
+      "Designed the transaction ledger to fintech standards — integer-only currency storage, atomic transaction records, row-level locking on debits, idempotency via reference deduplication",
+      "Integrating Paystack subaccounts for merchant settlement and VTPass for bill payments",
     ],
+    stack: ["Flutter", "Next.js", "NestJS", "PostgreSQL", "Paystack"],
+    links: [{ label: "Visit site", href: "https://valueloop.ng" }],
+  },
+  {
+    category: "Software Engineer II · 2025 – 2026",
+    title: "AnfaniFI",
+    description:
+      "Supply-chain and merchant fintech platform connecting buyers and sellers with non-traditional financial services.",
+    impact: [
+      "Built the customer ordering system enabling food merchants to sell directly to their customers",
+      "Led development of the Kitchen Display System in React Native",
+      "Co-developed the merchant portal's QR generation and management system",
+      "Maintained and extended the merchant portal across successive product cycles",
+    ],
+    stack: ["Next.js", "React Native", "TypeScript", "GraphQL", "REST", "Redux"],
     links: [{ label: "Visit site", href: "https://anfanifi.com" }],
   },
   {
-    category: "Engineering Lead",
+    category: "Cofounder & Engineering Lead · 2024 – Present",
     title: "Flextable",
     description:
-      "Led engineering for a platform connecting people to co-working and event spaces, delivering a full-stack product from idea to execution.",
+      "Two-sided marketplace connecting people to co-working and event spaces across Nigeria.",
     impact: [
-      "Led engineering decisions across frontend, backend, and deployment",
-      "Shipped a real-world marketplace product used for bookings and listings",
-      "Worked directly with product direction and execution strategy",
+      "Cofounded and built the entire platform — frontend, backend, deployment",
+      "Shipped booking, listing, and host-onboarding flows used by real hosts and renters",
+      "Owned every engineering and architecture decision from zero",
+      "Still in operation; active development concluded",
     ],
-    learnings: [
-      "Leading engineering teams and making product-driven decisions",
-      "Building marketplace platforms from scratch",
-      "Balancing speed, scalability, and real-world usability",
-    ],
+    stack: ["Next.js", "NestJS", "TypeScript", "PostgreSQL"],
     links: [{ label: "Visit site", href: "https://flextable.co" }],
   },
   {
-    category: "Product Build",
-    title: "Vimerge",
-    description:
-      "Built a conversion-focused e-commerce experience for a gospel fashion brand, combining storytelling with modern product design.",
-    impact: [
-      "Delivered a clean, high-conversion shopping experience",
-      "Strengthened brand storytelling through UI and layout decisions",
-    ],
-    learnings: [
-      "Designing for conversion and user psychology",
-      "Building structured content systems with CMS tools",
-      "Creating scalable UI systems for commerce",
-    ],
-    links: [{ label: "Visit site", href: "https://vimerge.shop" }],
-  },
-  {
-    category: "Web Application",
-    title: "Halocore",
-    description:
-      "Designed and developed a seamless booking experience that helps users move from discovery to reservation with minimal friction.",
-    impact: [
-      "Simplified booking flows and reduced user friction",
-      "Integrated external APIs to power dynamic availability and reservations",
-    ],
-    learnings: [
-      "Designing intuitive user journeys for transactional products",
-      "Handling API integrations in real-world applications",
-      "Building responsive, mobile-first interfaces",
-    ],
-    links: [{ label: "Visit site", href: "https://halocore.co" }],
-  },
-  {
-    category: "Frontend Engineering",
+    category: "Cofounder & Engineer · 2022 – 2023",
     title: "Justdeal",
     description:
-      "Rebuilt the frontend of a live platform from scratch to significantly improve performance and user experience.",
+      "Peer-to-peer marketplace for buying and selling secondhand goods, built with my brother.",
     impact: [
-      "Improved platform performance by over 20%",
-      "Delivered a faster and more responsive user experience",
+      "Cofounded and built a consumer marketplace from scratch",
+      "Rebuilt the production frontend without disrupting live functionality, improving performance by over 20%",
+      "First product I took from idea to real users",
     ],
-    learnings: [
-      "Re-architecting existing products without breaking functionality",
-      "Performance optimization in production environments",
-      "Working in collaboration with backend teams on live systems",
-    ],
+    stack: ["Next.js", "React Query", "Tailwind CSS", "Jest"],
     links: [{ label: "Visit site", href: "http://justdeal.ng" }],
-  },
-  {
-    category: "Portfolio Platform",
-    title: "Coach Kemi",
-    description:
-      "Engineered a personal brand platform with integrated booking, helping convert audience trust into action.",
-    impact: [
-      "Created a clear conversion flow from landing to booking",
-      "Improved credibility through structured brand presentation",
-    ],
-    learnings: [
-      "Designing for personal brands and trust-building",
-      "Structuring content for clarity and engagement",
-    ],
-    links: [{ label: "Visit site", href: "https://www.iamcoachkemi.com/" }],
   },
 ];
 
 const introParagraphs = [
-  "I'm a software developer and builder based in Lagos, Nigeria. I enjoy designing thoughtful interfaces and turning ideas into reliable digital products that feel fast, clear, and easy to use.",
-  "Across startups and growing teams, I've worked on frontend systems, full web applications, and product experiences for users across Africa, the UK, and the US. I care deeply about usability, performance, and clean execution.",
-  "If you're looking for someone who can translate product direction into polished, scalable software, let's connect.",
+  "I build complete products alone. Next.js and Flutter on the front, NestJS and PostgreSQL behind them, and everything in between.",
+  "Right now that means Encirco, an AI-assisted business registration platform that has taken over 600 companies through incorporation, and ValueLoop, a fintech rewards platform I'm building end to end — mobile app, admin backoffice, and API.",
+  "Before that I was Software Engineer II at AnfaniFI, building merchant ordering systems for a supply-chain fintech. I've also cofounded two marketplaces, Flextable and Justdeal, and shipped both to real users.",
+  "I work from Nigeria on UTC+1 — a full working day of overlap with every European team.",
 ];
 
 const contactLinks = [
@@ -129,13 +99,11 @@ const contactLinks = [
 
 export const metadata = {
   title: siteConfig.title,
-  description:
-    "Portfolio of Okiemute Egokiphovwen, a Lagos-based software developer building scalable web applications, frontend systems, and product experiences.",
+  description: siteConfig.description,
   keywords: [
     ...siteConfig.keywords,
-    "software engineer portfolio",
-    "frontend engineering portfolio",
-    "Lagos software developer portfolio",
+    "founding engineer portfolio",
+    "full-stack engineer portfolio",
   ],
   alternates: {
     canonical: "/",
@@ -143,7 +111,7 @@ export const metadata = {
   openGraph: {
     title: siteConfig.title,
     description:
-      "Explore selected work, product case studies, and engineering experience from Okiemute Egokiphovwen.",
+      "Selected work from a full-stack engineer who ships whole products alone — mobile, web, and backend.",
     url: absoluteUrl("/"),
     type: "website",
     images: [
@@ -159,7 +127,7 @@ export const metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description:
-      "Explore selected work, product case studies, and engineering experience from Okiemute Egokiphovwen.",
+      "Selected work from a full-stack engineer who ships whole products alone — mobile, web, and backend.",
     images: [siteConfig.ogImage],
   },
 };
