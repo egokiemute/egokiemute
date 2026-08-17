@@ -24,6 +24,20 @@ const projects = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript", "WhatsApp Cloud API"],
     links: [{ label: "Visit site", href: "https://encir.co" }],
   },
+   {
+    category: "Frontend Engineer · 2026 (Contract)",
+    title: "Payva Payment",
+    description:
+      "I work as a Frontend Engineer on Payva’s web application (backoffice and landing page), contributing to the development of secure, scalable, and user-friendly financial products.",
+    impact: [
+      "Build and maintain core frontend features for Payva’s web application using modern JavaScript frameworks",
+      "Built and maintain the merchant and agent dashboards with features for onboarding, transaction monitoring, and customer support",
+      "Collaborate closely with product managers and backend engineers to integrate APIs and deliver seamless user experiences",
+      "Contribute to technical decisions on architecture, performance optimization, and frontend best practices",
+    ],
+    stack: ["Next.js", "React/Vite", "TailwindCSS", "TypeScript"],
+    links: [{ label: "Visit site", href: "https://www.payvapayment.com/" }],
+  },
   {
     category: "Full-Stack Engineer (Contract) · 2026 – Present",
     title: "ValueLoop",
