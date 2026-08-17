@@ -24,7 +24,7 @@ const projects = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript", "WhatsApp Cloud API"],
     links: [{ label: "Visit site", href: "https://encir.co" }],
   },
-   {
+  {
     category: "Frontend Engineer · 2026 (Contract)",
     title: "Payva Payment",
     description:
