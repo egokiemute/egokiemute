@@ -1,0 +1,96 @@
+/* Scoped to blog post pages only (imported by app/(site)/blog/[slug]/page.tsx). */
+
+/* --- rehype-pretty-code (Shiki, dual theme) --- */
+.mdx-prose figure[data-rehype-pretty-code-figure] {
+  margin: 1.5rem 0;
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] pre {
+  background-color: #fbfbf9;
+  padding-inline: 0;
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] pre > code {
+  display: grid; /* one row per line, enables line highlighting */
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  border-radius: 0;
+  counter-reset: line;
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.75rem;
+  margin-right: 1.25rem;
+  text-align: right;
+  color: rgba(18, 18, 18, 0.3);
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] [data-line] {
+  padding-inline: 1.25rem;
+  border-left: 2px solid transparent;
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background-color: rgba(18, 18, 18, 0.05);
+  border-left-color: rgba(18, 18, 18, 0.4);
+}
+
+.mdx-prose [data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  background-color: rgba(18, 18, 18, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.2rem;
+}
+
+.mdx-prose [data-rehype-pretty-code-title] {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(18, 18, 18, 0.1);
+  border-bottom: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(18, 18, 18, 0.55);
+}
+
+/* Activate the Shiki dark palette. rehype-pretty-code writes both light and
+   dark colours as CSS variables on every token; this swaps them in when the OS
+   is in dark mode. The site has no theme toggle yet, so key off the media query. */
+@media (prefers-color-scheme: dark) {
+  .mdx-prose [data-rehype-pretty-code-figure] pre {
+    background-color: #131313;
+  }
+  .mdx-prose [data-rehype-pretty-code-figure] code span {
+    color: var(--shiki-dark) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+  .mdx-prose [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* --- autolinked headings (rehype-autolink-headings, behavior: "wrap") --- */
+.mdx-prose :is(h2, h3, h4) > a {
+  color: inherit;
+  text-decoration: none;
+}
+.mdx-prose :is(h2, h3, h4) > a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(18, 18, 18, 0.3);
+}
+
+/* --- KaTeX --- */
+.mdx-prose .katex-display {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+.mdx-prose .katex {
+  font-size: 1.05em;
+}

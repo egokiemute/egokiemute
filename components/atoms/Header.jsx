@@ -15,6 +15,9 @@ export default function Header() {
           <a href="/writings" className="transition hover:text-[#121212]">
             Writing
           </a>
+          <a href="/blog" className="transition hover:text-[#121212]">
+            Blog
+          </a>
           <a href="/#projects" className="transition hover:text-[#121212]">
             Projects
           </a>

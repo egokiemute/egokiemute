@@ -7,7 +7,7 @@ export const blogPosts = [
     category: "Product",
     image: "/assets/user-img.jpeg",
     excerpt:
-      "A working prompt kit for turning any AI tool into a spec interrogator. Copy the blocks, fill the brackets, and force every decision out of your head before any code gets generated.",
+      "A working prompt kit. Copy the blocks, fill the brackets, and paste into Claude, ChatGPT, Cursor, v0 by Vercel, or whatever you're using.",
     tags: ["ai", "product", "prompting", "specs"],
     sections: [
       {
@@ -18,7 +18,7 @@ export const blogPosts = [
       {
         heading: "Step 1: The interrogation prompt",
         body:
-          "Don't ask for a spec straight away. Ask to be questioned first. This is the single highest-value step, and the one almost everyone skips.\n\nPrompt: \"I'm about to write a product spec for something I'm building. Before you write anything, interview me. Here's what I have so far: [paste your two sentences]. Ask me the questions you'd need answered to write a spec precise enough that a developer could build from it without guessing. Ask them one batch at a time, maximum 5 questions per batch, ordered by how much the answer would change the shape of the product. Prioritise questions about: what happens in the unhappy path, what data must exist before the first screen works, what I am deliberately NOT building, who else touches this besides the main user. Do not write the spec yet. Do not suggest features. Just ask.\"\n\nAnswer honestly, including \"I don't know.\" A spec built on invented answers is worse than no spec.",
+          "Don't ask for a spec straight away. Ask to be questioned first. This is the single highest-value step, and the one almost everyone skips. Works the same whether you're in ChatGPT, Claude, or v0 by Vercel — any chat interface will do.\n\nPrompt: \"I'm about to write a product spec for something I'm building. Before you write anything, interview me. Here's what I have so far: [paste your two sentences]. Ask me the questions you'd need answered to write a spec precise enough that a developer could build from it without guessing. Ask them one batch at a time, maximum 5 questions per batch, ordered by how much the answer would change the shape of the product. Prioritise questions about: what happens in the unhappy path, what data must exist before the first screen works, what I am deliberately NOT building, who else touches this besides the main user. Do not write the spec yet. Do not suggest features. Just ask.\"\n\nAnswer honestly, including \"I don't know.\" A spec built on invented answers is worse than no spec.",
       },
       {
         heading: "Step 2: The spec generation prompt",
@@ -38,7 +38,7 @@ export const blogPosts = [
       {
         heading: "Step 5: The task prompt for build time",
         body:
-          "Never paste the whole spec at build time. Paste this shape instead: the spec slice (only the section for the thing you're building now), the relevant files (the existing code it must match, not the whole repo), the constraints (don't touch migrations, don't add dependencies, follow the conventions in CLAUDE.md), and the exit condition (done means: <specific, checkable>; stop there, don't add anything I didn't ask for).\n\nThe exit condition is what stops the model gold-plating. Most people never write one.",
+          "Never paste the whole spec at build time. Paste this shape instead: the spec slice (only the section for the thing you're building now), the relevant files (the existing code it must match, not the whole repo), the constraints (don't touch migrations, don't add dependencies, follow the conventions in CLAUDE.md), and the exit condition (done means: <specific, checkable>; stop there, don't add anything I didn't ask for).\n\nThe exit condition is what stops the model gold-plating. Most people never write one.\n\nThis is also where a UI-focused tool like v0 by Vercel earns its keep: feed it a single screen's slice of the spec and it generates the interface directly, instead of wading through a full-repo prompt.",
       },
       {
         heading: "What good looks like",

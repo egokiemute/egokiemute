@@ -1,0 +1,201 @@
+---
+title: "The Pigeonhole Principle Is Why Your ID Generator Breaks"
+description: "A short random ID looks unique until traffic catches up with the math. Here is the birthday-bound calculation that tells you when, and how to size an ID space so it never happens."
+publishedAt: "2026-08-20"
+series: "Mathematics Behind the Code"
+seriesOrder: 1
+tags: ["mathematics", "distributed-systems", "typescript"]
+cover: "sample"
+---
+
+## The problem
+
+A service generates a short ID for every upload: eight lowercase-alphanumeric
+characters, pulled from `Math.random()`. It shipped two years ago. Last week it
+started returning `409 Conflict` on inserts a few times an hour, and by the
+weekend it was a few times a minute. Nothing changed in the code. What changed
+is that the table crossed forty million rows.
+
+The ID space here is $36^8 \approx 2.82 \times 10^{12}$ — nearly three trillion
+values. Forty million rows is **0.0014%** of that. It feels impossibly early for
+collisions. It isn't, and the reason is the pigeonhole principle wearing its
+probabilistic coat: the birthday problem.
+
+<Callout type="note">
+This is not an argument against short IDs. It is an argument for doing the
+one-line calculation that tells you how many you can mint before the collision
+probability stops being negligible — *before* you pick the length.
+</Callout>
+
+## The math underneath it
+
+### Pigeonhole, exactly
+
+The plain statement: if you put $n$ items into $m$ containers and $n > m$, some
+container holds at least two items. Applied to IDs, once you have minted $m + 1$
+values from a space of size $m$, a collision is guaranteed. That bound is true
+but useless in practice — you hit trouble *long* before you exhaust the space.
+
+### The birthday bound
+
+Draw $k$ IDs independently and uniformly from a space of size $N$. The
+probability that all of them are distinct is the familiar falling product:
+
+$$
+P(\text{all distinct}) = \prod_{i=0}^{k-1} \left(1 - \frac{i}{N}\right)
+$$
+
+For $k \ll N$ each factor is close to $1$, and using $1 - x \approx e^{-x}$ the
+product collapses to a clean approximation:
+
+$$
+P(\text{collision}) \;=\; 1 - P(\text{all distinct}) \;\approx\; 1 - e^{-k(k-1)/(2N)}
+$$
+
+Set that equal to $\tfrac{1}{2}$ and solve for $k$: the halfway point sits at
+
+$$
+k_{1/2} \approx \sqrt{2N \ln 2} \approx 1.1774\,\sqrt{N}
+$$
+
+The headline consequence is the square root. Collision risk is governed not by
+$N$ but by $\sqrt{N}$, so **every collision-safe capacity estimate loses half its
+bits**. A 64-bit random ID does not get you $1.8 \times 10^{19}$ safe values; it
+gets you about $5 \times 10^{9}$ before you are at a coin-flip.
+
+Back to the upload service: $N = 36^8$, so $\sqrt{N} \approx 1.68 \times 10^6$.
+By forty million rows we are more than twenty times past the 50% mark — a
+collision on essentially every insert, which is exactly what the on-call graph
+showed.
+
+<Callout type="warning">
+`Math.random()` makes this strictly worse. It is not a CSPRNG, its output has
+far less than 52 bits of usable entropy, and V8's implementation has a period
+and structure an attacker can exploit. For anything that is a key, use
+`crypto.getRandomValues`.
+</Callout>
+
+## The implementation in TypeScript
+
+First, the calculation itself, so sizing an ID is a function call and not a
+vibe:
+
+```ts
+/** Probability of >=1 collision when drawing `k` IDs from a space of size `n`. */
+export function collisionProbability(k: number, n: number): number {
+  if (k < 2) return 0;
+  // 1 - e^{-k(k-1)/(2n)}, the standard birthday approximation.
+  const exponent = -(k * (k - 1)) / (2 * n);
+  return 1 - Math.exp(exponent);
+}
+
+/** Largest `k` you can draw from `n` values while staying under `risk`. */
+export function safeDrawCount(n: number, risk = 1e-9): number {
+  // Invert the approximation: k ≈ sqrt(2n · ln(1 / (1 - risk))).
+  return Math.floor(Math.sqrt(2 * n * Math.log(1 / (1 - risk))));
+}
+```
+
+Then an ID generator that is actually uniform over its alphabet. The subtle bug
+in most hand-rolled versions is modulo bias — `bytes[i] % 36` is not uniform
+because 256 is not a multiple of 36 — so this rejects the out-of-range tail of
+each byte:
+
+```ts
+const ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyz";
+
+export function makeId(length = 12): string {
+  const max = 256 - (256 % ALPHABET.length); // largest unbiased byte value + 1
+  let out = "";
+  const buf = new Uint8Array(length * 2);    // over-allocate to absorb rejects
+  while (out.length < length) {
+    crypto.getRandomValues(buf);
+    for (const byte of buf) {
+      if (byte >= max) continue;             // reject to kill modulo bias
+      out += ALPHABET[byte % ALPHABET.length];
+      if (out.length === length) break;
+    }
+  }
+  return out;
+}
+```
+
+With `length = 12` the space is $36^{12} \approx 4.7 \times 10^{18}$, and
+`safeDrawCount(36 ** 12)` returns roughly $3 \times 10^{9}$ IDs before a
+one-in-a-billion collision risk — comfortable for the upload service's lifetime.
+`length = 8` returns about **75,000**. That is the entire budget the original
+design had, and it was spent in the first afternoon.
+
+<Wide>
+
+```ts
+// Capacity table: how many IDs each configuration survives at three risk levels.
+// Run with `tsx`. The `1 in N inserts` column is 1 / collisionProbability(k+1, n)
+// evaluated at the 1e-9 row — i.e. the marginal odds once you are there.
+import { collisionProbability, safeDrawCount } from "./birthday";
+
+type Row = { label: string; bits: number; n: number };
+
+const configs: Row[] = [
+  { label: "8 base36  (Math.random era)", bits: Math.log2(36 ** 8),  n: 36 ** 8 },
+  { label: "12 base36 (recommended)",     bits: Math.log2(36 ** 12), n: 36 ** 12 },
+  { label: "64-bit random",               bits: 64,                  n: 2 ** 64 },
+  { label: "122-bit (UUID v4 payload)",   bits: 122,                 n: 2 ** 122 },
+];
+
+console.table(
+  configs.map(({ label, bits, n }) => ({
+    config: label,
+    "entropy bits": bits.toFixed(1),
+    "safe @ 1e-12": safeDrawCount(n, 1e-12).toExponential(2),
+    "safe @ 1e-9":  safeDrawCount(n, 1e-9).toExponential(2),
+    "safe @ 1%":    safeDrawCount(n, 0.01).toExponential(2),
+    "p(collision) at 1e9 IDs": collisionProbability(1e9, n).toExponential(2),
+  })),
+);
+```
+
+</Wide>
+
+The same numbers, rounded, as a reference:
+
+| Configuration | Entropy | Safe at 1‑in‑a‑trillion | Safe at 1‑in‑a‑billion | Safe at 1% |
+| --- | --- | --- | --- | --- |
+| 8 base36 | 41.4 bits | ~2.4K | ~75K | ~370K |
+| 12 base36 | 62.1 bits | ~97M | ~3.1B | ~15B |
+| 64-bit random | 64 bits | ~192M | ~6.1B | ~30B |
+| 122-bit (UUID v4) | 122 bits | ~9.6×10¹⁸ | ~3.0×10²⁰ | ~1.5×10²¹ |
+
+<CloudinaryImage
+  publicId="sample"
+  alt="Collision probability rising with the square root of the number of IDs drawn"
+  caption="Collision probability against IDs minted — the curve turns up near √N, not near N."
+  width={1600}
+  height={900}
+/>
+
+## Where else this shows up
+
+The birthday bound is the same calculation every time the surface changes:
+
+- **Hash tables.** With $k$ keys in $m$ buckets the expected number of colliding
+  pairs is $\binom{k}{2}/m$. This is why a load factor near $1$ already means
+  most buckets past the first are chains, and why resizing is not optional.
+- **Git short hashes.** `git` abbreviates SHA-1 to 7 hex digits ($N = 16^7$) by
+  default and lengthens it automatically once a repo has enough objects that
+  $\sqrt{N}$ is in reach — the same $1.1774\sqrt{N}$ threshold, applied to a
+  content-addressed store.
+- **Deduplication by content hash.** A 128-bit hash over a corpus of $10^{12}$
+  chunks has collision probability near $10^{12 \cdot 2}/2^{128} \approx
+  3 \times 10^{-15}$ — safe, but the exponent arithmetic is worth doing rather
+  than assuming.
+- **Distributed ID assignment without coordination.** Snowflake-style schemes
+  sidestep the bound entirely by partitioning the space (timestamp + machine ID
+  + per-ms counter) so draws are never independent and uniform. That is the
+  actual fix when $\sqrt{N}$ is not big enough: stop drawing randomly.
+
+<Callout type="aside">
+Rule of thumb worth memorising: you can safely mint about $\sqrt{N}$ random
+identifiers from a space of size $N$ before collisions matter. Halve the bit
+count, then decide if the length is enough.
+</Callout>

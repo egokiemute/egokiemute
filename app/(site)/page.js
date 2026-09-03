@@ -52,6 +52,31 @@ const projects = [
     links: [{ label: "Visit site", href: "https://valueloop.ng" }],
   },
   {
+    category: "Builder · 2026",
+    title: "Clink",
+    description:
+      "Stablecoin payment infrastructure: USDC on Stellar, local-currency settlement.",
+    impact: [
+      "Built a payments platform that lets African businesses accept USDC on Stellar and settle in local currency (NGN, GHS, KES, UGX), shipped as an installable npm SDK and a hosted REST API",
+      "Modelled the payment flow as an idempotent state machine — matches on-chain deposits to invoices by memo and amount, with signed HMAC-SHA256 webhooks, retry-with-backoff delivery, and timing-safe verification",
+      "Built custodial merchant wallets with AES-256-GCM key encryption at rest, a pluggable settlement layer with FX-rate fallback, and a multi-provider bank-payout router (Paystack, Flutterwave)",
+      "Shipped a Stripe-style hosted checkout in Next.js with live payment status over Server-Sent Events, plus merchant and admin dashboards",
+    ],
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "Stellar SDK",
+      "Next.js",
+      "Neon Postgres",
+      "Jest",
+    ],
+    links: [
+      { label: "Visit site", href: "https://clink-app-delta.vercel.app/" },
+      { label: "Frontend repo", href: "https://github.com/egokiemute/clink-app" },
+      { label: "Backend repo", href: "https://github.com/egokiemute/clink" },
+    ],
+  },
+  {
     category: "Software Engineer II · 2025 – 2026",
     title: "AnfaniFI",
     description:

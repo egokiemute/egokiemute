@@ -1,21 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        // Global optimizer stays off. `CloudinaryImage` passes its own `loader`,
+        // which still produces a real srcset. If this is ever flipped on, add
+        // `remotePatterns` for `res.cloudinary.com`.
         unoptimized: true,
-    },
-    async redirects() {
-        return [
-            {
-                source: "/blog",
-                destination: "/writings",
-                permanent: true,
-            },
-            {
-                source: "/blog/:slug",
-                destination: "/writings/:slug",
-                permanent: true,
-            },
-        ];
     },
 };
 
