@@ -10,7 +10,7 @@ I work on systems where correctness matters: payment ledgers, compliance workflo
 
 **[Encirco](https://encir.co)** - AI-powered business formation and compliance for Nigerian companies. Co-founder and sole engineer. Includes a WhatsApp intake agent built on the Claude API with structured outputs and a multi-step agent workflow that turns an unstructured chat into a validated CAC filing.
 
-**Flextable** - A two-sided marketplace for booking physical spaces, coworking, meeting rooms, event halls, and photo, film, and audio studios across 4 cities. Guests search and book by location, capacity, and use case; hosts list spaces, manage availability, and handle bookings.
+**[Flextable](https://flextable.co)** - A two-sided marketplace for booking physical spaces, coworking, meeting rooms, event halls, and photo, film, and audio studios across 4 cities. Guests search and book by location, capacity, and use case; hosts list spaces, manage availability, and handle bookings.
 
 **[The Builders House](https://tbh.plus)** — Developer community and events for the Niger Delta. Founder.
 
