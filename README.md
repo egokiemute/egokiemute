@@ -1,67 +1,56 @@
-# 👋 Hi, I’m Okiemute Egokiphovwen
+# Okiemute Egokiphovwen
 
-I’m a **software engineer and builder** focused on crafting clean, scalable, and user-centered web experiences. I enjoy turning ideas into functional products, paying close attention to performance, accessibility, and design details.
+**Full-stack engineer.** TypeScript, NestJS, Next.js, Postgres. Seven years building products end to end mostly fintech, mostly as the only engineer on the team.
 
----
-
-## 🚀 What I Do
-
-- Build modern web applications with a strong focus on **frontend engineering**
-- Design and implement **responsive, accessible UI**
-- Work across the stack when needed to ship complete products
-- Continuously learn and experiment with new tools and patterns
+I work on systems where correctness matters: payment ledgers, compliance workflows, and multi-tenant platforms that have to stay consistent under load. I write the spec before the code, break builds into independently shippable phases, and ship to production.
 
 ---
 
-## 🛠️ Tech Stack
+## What I'm building
 
-**Frontend**
+**[Encirco](https://encir.co)** - AI-powered business formation and compliance for Nigerian companies. Co-founder and sole engineer. Includes a WhatsApp intake agent built on the Claude API with structured outputs and a multi-step agent workflow that turns an unstructured chat into a validated CAC filing.
 
-- JavaScript (ES6+), TypeScript
-- React, Next.js
-- Tailwind CSS, CSS Modules
-- Framer Motion
+**Flextable** - A two-sided marketplace for booking physical spaces, coworking, meeting rooms, event halls, and photo, film, and audio studios across 4 cities. Guests search and book by location, capacity, and use case; hosts list spaces, manage availability, and handle bookings.
 
-**Backend & Tools**
+**[The Builders House](https://tbh.plus)** — Developer community and events for the Niger Delta. Founder.
 
-- Node.js
-- REST APIs
-- Git & GitHub
-- Vercel, Firebase
+Plus a dozen other shipped products — marketplaces, SaaS tools, and mobile apps — built solo from spec to deploy.
 
 ---
 
-## 🧠 Currently Interested In
+## Stack
 
-- Frontend architecture & design systems
-- Performance optimization
-- Developer experience (DX)
-- Building small SaaS and useful tools
+**Backend** — NestJS, Node.js, TypeScript, PostgreSQL, Supabase, REST, background jobs and queues
 
----
+**Frontend** — Next.js (App Router), React, TypeScript, Tailwind CSS, Framer Motion
 
-## 📌 Selected Projects
+**Mobile** — Flutter, Riverpod, go_router
 
-> Some of the things I’ve worked on or am currently building.
+**AI** — Claude API, structured outputs, tool use, agent workflows, RAG
 
-- **Portfolio Website** – Personal site showcasing my work and experiments
-- **UI Components & Animations** – Reusable components with smooth interactions
-- **Product Experiments** – Small tools and MVP-style projects
-
-_(More projects coming soon…)_
+**Infra** — Vercel, Docker, GitHub Actions, Supabase, Firebase
 
 ---
 
-## 🌍 Find Me Online
+## How I work
 
-- **GitHub:** [@egokiemute](https://github.com/egokiemute)
-- **Portfolio:** _(coming soon)_
-- **Twitter / X / LinkedIn:** _(optional – add when ready)_
+- **Spec before code.** Every project starts with a written technical spec: data model, API surface, failure modes reviewed before a line is written.
+- **Phased delivery.** Builds are decomposed into slices that each ship independently. No six-week branches.
+- **Agent-assisted, not agent-dependent.** Every repo carries an instruction file so AI tooling produces code that matches the project's conventions instead of fighting them.
+- **Ownership.** I've been the only engineer on production fintech systems. I own deploys, incidents, and the on-call pager.
 
 ---
 
-## 🤝 Let’s Connect
+## Background
 
-I’m always open to collaborating on interesting ideas, frontend-heavy projects, and products that solve real problems.
+Previously a Software Engineer II at AnfaniFI.
 
-> _“Build things. Learn fast. Improve constantly.”_
+Currently open to senior and staff full-stack roles, remote or relocating to Europe.
+
+---
+
+## Contact
+
+- **Portfolio** — [okiemute.cv](https://www.okiemute.cv/)
+- **LinkedIn** — [in/egokiphovwenokiemute](https://www.linkedin.com/in/egokiemute/)
+- **X** — [@egokiemute](https://x.com/egokiemute)
